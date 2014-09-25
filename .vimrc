@@ -35,6 +35,8 @@ Bundle 'Source-Explorer-srcexpl.vim'
 Bundle 'itchyny/lightline.vim'
 " for php
 Bundle 'PDV--phpDocumentor-for-Vim'
+" for coffee script
+Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on     " required!
 
