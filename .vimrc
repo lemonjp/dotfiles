@@ -39,6 +39,10 @@ Bundle 'PDV--phpDocumentor-for-Vim'
 " for coffee script
 Bundle 'kchmck/vim-coffee-script'
 
+" for jsbeautify
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'einars/js-beautify'
+
 filetype plugin indent on     " required!
 
 
@@ -200,6 +204,17 @@ nnoremap <Space>op :set nopaste<CR>
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR>
+
+"-------------------------------------------
+"  JsBeautify
+"-------------------------------------------
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 "-------------------------------------------
 "  commentout
