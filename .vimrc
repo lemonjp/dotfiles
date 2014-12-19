@@ -74,9 +74,11 @@ set number                    " line numbers On
 set cursorline
 set colorcolumn=80
 
-colorscheme molokai
+:silent! colorscheme molokai
+
 "set background=dark            " for solarized color scheme
 "let g:solarized_termcolors=256 " for solarized color scheme
+
 let g:solarized_termtrans=1
 "colorscheme solarized
 "colorscheme zenburn
