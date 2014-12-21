@@ -43,6 +43,9 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
 
+" for dockerfile
+Bundle 'ekalinin/Dockerfile.vim'
+
 filetype plugin indent on     " required!
 
 
