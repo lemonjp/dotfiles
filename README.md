@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo is a skeleton/template repo for tracking dotfiles. 
+This repo is a skeleton/template repo for tracking dotfiles.
 
 ## Using this repo
 
@@ -19,3 +19,13 @@ $ wget https://gist.github.com/lemonjp/2558f5cc63bcd347024b/raw/9e4f07818da3e9f9
 $ cd ~/.vim/snippets
 $ ln -s ~/dotfiles/.vim/snippets/php.snippets php.snippets
 ```
+### Or more simple way to do
+
+```sh
+$ cd $HOME
+$ git clone git@github.com:username/dotfiles.git dotfiles
+$ cd dotfiles
+$ mv vim_startup.sh ../ && cd ../
+$ chmod 755 vim_startup.sh && ./vim_startup.sh
+```
+
