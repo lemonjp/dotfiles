@@ -38,13 +38,13 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'PDV--phpDocumentor-for-Vim'
 " for coffee script
 Bundle 'kchmck/vim-coffee-script'
-
 " for jsbeautify
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
-
 " for dockerfile
 Bundle 'ekalinin/Dockerfile.vim'
+" for comment nerd
+Bundle 'scrooloose/nerdcommenter'
 
 filetype plugin indent on     " required!
 
