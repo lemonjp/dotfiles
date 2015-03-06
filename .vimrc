@@ -63,6 +63,8 @@ set smarttab
 
 set backspace=indent,eol,start " バックスペースでなんでも消せるように
 
+autocmd BufWritePre * :%s/\s\+$//e  "auto remove white space.
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ visual
 """"""""""""""""""""""""""""""""""""""""""""""""""
