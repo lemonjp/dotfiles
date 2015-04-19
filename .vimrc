@@ -45,6 +45,10 @@ Bundle 'einars/js-beautify'
 Bundle 'ekalinin/Dockerfile.vim'
 " for comment nerd
 Bundle 'scrooloose/nerdcommenter'
+" tabbar
+Bundle 'majutsushi/tagbar'
+Bundle 'xolox/vim-easytags'
+Bundle 'xolox/vim-misc'
 
 filetype plugin indent on     " required!
 
@@ -180,6 +184,20 @@ endif
 let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 "-------------------------------------------
+"  easytags
+"-------------------------------------------
+" Let Vim walk up directory hierarchy from CWD to root looking for tags file
+set tags=tags;/
+" Tell EasyTags to use the tags file found by Vim
+let g:easytags_dynamic_files = 1
+
+" To generate tags only when a file is saved, add this to
+let g:easytags_events = ['BufWritePost']
+
+" To disable automatic highlighting of tags, add this to
+let g:easytags_auto_highlight = 0
+
+"-------------------------------------------
 "  input completion
 "-------------------------------------------
 
@@ -211,6 +229,9 @@ nnoremap <Space>op :set nopaste<CR>
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR>
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
 
 "-------------------------------------------
 "  JsBeautify
