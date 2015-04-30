@@ -4,11 +4,11 @@ snippet <
   <${1:tag}${2}>${3}</$1>
 snippet d
   echo '<pre>';
-  print_r(${1});
+  print_r($${1});
   echo '</pre>';
 snippet de
   echo '<pre>';
-  print_r(${1});
+  print_r($${1});
   echo '</pre>';
   exit;
 snippet php
@@ -227,3 +227,14 @@ snippet fun
 # $... = array (...)
 snippet array
   $${1:arrayName} = array('${2}' => ${3});${4}
+snippet dumpf
+  ob_start();
+  print_r($${1:arrayName});
+  $result =ob_get_contents();
+  ob_end_clean();
+
+  $fp = fopen("${2}/dump.txt", "a+" );
+  fputs($fp, $result);
+  fclose( $fp );
+  exit;
+# put dump result to a file
