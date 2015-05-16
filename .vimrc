@@ -59,9 +59,9 @@ filetype plugin indent on     " required!
 "set nowrap
 set noautoindent
 set textwidth=0                " Don't wrap lines by default
-set tabstop=2                  " tab size eql 2 spaces
-set softtabstop=2
-set shiftwidth=2               " default shift width for indents
+set tabstop=4                  " tab size eql 4 spaces
+set softtabstop=4
+set shiftwidth=4               " default shift width for indents
 set expandtab                  " replace tabs with ${tabstop} spaces
 set smarttab
 
@@ -104,6 +104,8 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.twig set ft=jinja
 "autocmd BufRead,BufNewFile *.twig set filetype=htmljinja
 "au BufRead,BufNewFile *.twig set syntax=htmldjango
 
+" タブ文字のカラー設定
+autocmd VimEnter,Colorscheme * highlight SpecialKey cterm=NONE ctermfg=234 ctermbg=NONE
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ plugins
