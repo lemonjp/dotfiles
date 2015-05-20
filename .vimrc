@@ -59,11 +59,18 @@ filetype plugin indent on     " required!
 "set nowrap
 set noautoindent
 set textwidth=0                " Don't wrap lines by default
-set tabstop=4                  " tab size eql 4 spaces
-set softtabstop=4
-set shiftwidth=4               " default shift width for indents
+set tabstop=2                  " tab size eql 4 spaces
+set softtabstop=2
+set shiftwidth=2               " default shift width for indents
 set expandtab                  " replace tabs with ${tabstop} spaces
 set smarttab
+
+" for hard tab
+if expand("%:t") =~ ".*\.php"
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
+endif
 
 set backspace=indent,eol,start " バックスペースでなんでも消せるように
 
