@@ -20,6 +20,10 @@ Bundle 'ujihisa/unite-colorscheme'
 Bundle 'lemonjp/molokai'
 Bundle 'jnurmine/Zenburn'
 Bundle 'altercation/vim-colors-solarized'
+" for less
+Bundle 'groenewege/vim-less'
+" for jade
+Bundle 'digitaltoad/vim-jade'
 
 " for better html template syntax highlighting
 Bundle "lepture/vim-jinja"
@@ -110,6 +114,10 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.twig set ft=jinja
 "autocmd BufRead,BufNewFile *.twig set filetype=htmljinja
 "au BufRead,BufNewFile *.twig set syntax=htmldjango
+
+" syntax for markdown
+set syntax=markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " タブ文字のカラー設定
 autocmd VimEnter,Colorscheme * highlight SpecialKey cterm=NONE ctermfg=234 ctermbg=NONE
