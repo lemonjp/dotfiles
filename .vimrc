@@ -24,6 +24,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'groenewege/vim-less'
 " for jade
 Bundle 'digitaltoad/vim-jade'
+" for json
+Bundle 'elzr/vim-json'
 
 " for better html template syntax highlighting
 Bundle "lepture/vim-jinja"
