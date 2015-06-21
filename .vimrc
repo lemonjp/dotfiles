@@ -122,6 +122,9 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " タブ文字のカラー設定
 autocmd VimEnter,Colorscheme * highlight SpecialKey cterm=NONE ctermfg=234 ctermbg=NONE
 
+" for json syntax
+let g:vim_json_syntax_conceal = 0
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""
