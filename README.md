@@ -29,3 +29,16 @@ $ mv vim_startup.sh ../ && cd ../
 $ chmod 755 vim_startup.sh && ./vim_startup.sh
 ```
 
+### Working with coffeescript
+
+if you want to use vim-coffee-script then you need install this npm.
+
+```sh
+npm install -g coffee-script
+```
+
+how to use
+
+```sh
+:CoffeeCompile vert
+```
