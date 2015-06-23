@@ -24,6 +24,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'groenewege/vim-less'
 " for jade
 Bundle 'digitaltoad/vim-jade'
+" for json
+Bundle 'elzr/vim-json'
 
 " for better html template syntax highlighting
 Bundle "lepture/vim-jinja"
@@ -121,6 +123,9 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " タブ文字のカラー設定
 autocmd VimEnter,Colorscheme * highlight SpecialKey cterm=NONE ctermfg=234 ctermbg=NONE
+
+" for json syntax
+let g:vim_json_syntax_conceal = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """ plugins
