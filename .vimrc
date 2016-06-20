@@ -14,27 +14,3 @@ source ~/.vim/config.vim
 source ~/.vim/mappings.vim
 " Load plugin-specific configuration.
 source ~/.vim/plugins.vim
-
-
-"Bundle 'Shougo/neocomplcache'
-"Bundle 'Shougo/vimshell.vim'
-"Bundle 'Shougo/vimproc'
-" for snippets
-"Bundle 'Shougo/neosnippet'
-"Bundle 'Shougo/neosnippet-snippets'
-" for ctags
-"Bundle 'Source-Explorer-srcexpl.vim'
-"Bundle 'taglist.vim'
-"Bundle 'itchyny/lightline.vim'
-" for jsbeautify
-"Bundle 'maksimr/vim-jsbeautify'
-"Bundle 'einars/js-beautify'
-" for dockerfile
-"Bundle 'ekalinin/Dockerfile.vim'
-" for comment nerd
-"Bundle 'scrooloose/nerdcommenter'
-" tabbar
-"Bundle 'majutsushi/tagbar'
-"Bundle 'xolox/vim-easytags'
-"Bundle 'xolox/vim-misc'
-
