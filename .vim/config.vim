@@ -89,11 +89,29 @@ endif
 " Others
 " ---------------
 
+" Ctags
+set tags=./tags;
+
 " Better complete options to speed it up
 set complete=.,w,b,u,U
 
 " auto remove white space.
 autocmd BufWritePre * :%s/\s\+$//e
+
+" ---------------
+" Behaviors
+" ---------------
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+inoremap < <><LEFT>
+vnoremap { "zdi^V{<C-R>z}<ESC>
+vnoremap [ "zdi^V[<C-R>z]<ESC>
+vnoremap ( "zdi^V(<C-R>z)<ESC>
+vnoremap " "zdi^V"<C-R>z^V"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
 
 
 " ---------------
@@ -147,20 +165,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Tell Neosnippet about the other snippets
 "let g:neosnippet#snippets_directory='~/.vim/snippets'
 
-"-------------------------------------------
-"  input completion
-"-------------------------------------------
-"inoremap { {}<LEFT>
-"inoremap [ []<LEFT>
-"inoremap ( ()<LEFT>
-"inoremap " ""<LEFT>
-"inoremap ' ''<LEFT>
-"inoremap < <><LEFT>
-"vnoremap { "zdi^V{<C-R>z}<ESC>
-"vnoremap [ "zdi^V[<C-R>z]<ESC>
-"vnoremap ( "zdi^V(<C-R>z)<ESC>
-"vnoremap " "zdi^V"<C-R>z^V"<ESC>
-"vnoremap ' "zdi'<C-R>z'<ESC>
 
 "-------------------------------------------
 "  key mappings
