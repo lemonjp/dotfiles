@@ -7,8 +7,8 @@
 " ---------------
 syntax on                      " enable syntax
 "set background=dark
-":silent! colorscheme molokai
-:silent! colorscheme jellybeans
+:silent! colorscheme molokai
+":silent! colorscheme jellybeans
 set t_Co=256
 
 " ---------------
