@@ -2,10 +2,10 @@
 " Vundle
 " ----------------------------------------
 
-set nocompatible " be iMproved
-filetype off     " required!
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -22,4 +22,5 @@ for file in split(glob('$HOME/.vim/vundle_plugins/custom/*.vim'), '\n')
 endfor
 unlet g:vundle_installing_plugins
 
-call vundle#end()
+call vundle#end()            " required
+filetype plugin indent on    " required
