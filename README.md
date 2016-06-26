@@ -8,6 +8,7 @@ This repo is a skeleton/template repo for tracking dotfiles.
 
 ```sh
 $ cd $HOME
-$ git clone git@github.com:username/dotfiles.git .dotfiles
-$ sh -x ./dotfiles/scripts/setup.sh
+$ git clone https://github.com/lemonjp/dotfiles.git
+$ sh -x ./dotfiles/setup.sh
+$ sh -x ./dotfiles/.vim/scripts/setup
 ```
