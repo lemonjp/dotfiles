@@ -12,3 +12,8 @@ $ git clone https://github.com/lemonjp/dotfiles.git
 $ sh -x ./dotfiles/setup.sh
 $ sh -x ./dotfiles/.vim/scripts/setup
 ```
+### for prevent vim and tmux rendering problem
+
+```
+tmux -u -2
+```
