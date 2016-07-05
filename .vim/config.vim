@@ -79,6 +79,12 @@ set autoindent
 set smarttab
 set expandtab                  " replace tabs with ${tabstop} spaces
 
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.java setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.php  setlocal tabstop=4 softtabstop=4 shiftwidth=4
+augroup END
+
 " for hard tab
 if expand("%:t") =~ ".*\.php"
   set tabstop=4
