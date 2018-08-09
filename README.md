@@ -12,6 +12,14 @@ $ git clone https://github.com/lemonjp/dotfiles.git
 $ sh -x ./dotfiles/setup.sh
 $ sh -x ./dotfiles/.vim/scripts/setup
 ```
+## for dein
+
+```sh
+$ sh -x ./dotfiles/.vim/scripts/installer.sh ~/.cache/dein
+
+```
+`:call dein#install()`
+
 ### for prevent vim and tmux rendering problem
 
 ```

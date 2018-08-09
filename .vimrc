@@ -12,5 +12,8 @@ filetype plugin indent on
 source ~/.vim/config.vim
 " All hotkeys, not dependant on plugins, are mapped here.
 source ~/.vim/mappings.vim
+" Load plugin-specific configuration for dein.
+source ~/.vim/dein.vim
+
 " Load plugin-specific configuration.
 source ~/.vim/plugins.vim
