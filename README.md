@@ -18,8 +18,15 @@ $ sh -x ./dotfiles/.vim/scripts/setup
 
 `:call dein#install()`
 
+## Working on osx
+
+```
+brew install reattach-to-user-namespace
+```
+
 ### for prevent vim and tmux rendering problem
 
 ```
 tmux -u -2
 ```
+
