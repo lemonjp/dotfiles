@@ -64,18 +64,10 @@ set-option -g status-right "Vol.#(sh get_volume_tmux) #(sh get_ssid_tmux) FRAM:#
 set -g mouse on
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e'"
 bind -n WheelDownPane select-pane -t= ; send-keys -M
-## コマンドモードでの選択方法をvim風に変更
+# コマンドモードでの選択方法をvim風に変更
 set-window-option -g mode-keys vi
-setw -g mode-keys vi
-bind-key -T copy-mode-vi v send -X begin-selection
-## ☆クリップボートとの連携（Mac）
-bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
-bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
-## ☆クリップボートとの連携(WLS)
-bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "win32yank.exe -i"
-unbind -T copy-mode-vi Enter
-bind-key -T copy-mode-vi Enter send -X copy-pipe-and-cancel "win32yank.exe -i"
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "win32yank.exe -i"
-unbind-key -T prefix v
-bind-key v run "win32yank.exe -o | tmux load-buffer - && tmux paste-buffer"
+
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "cat | win32yank.exe -i"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "cat | win32yank.exe -i"
