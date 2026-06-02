@@ -43,6 +43,13 @@ endif
 
 So when adding a plugin: create `.vim/vundle_plugins/<name>.vim` following this pattern, put the `Plugin '...'` line inside the guard and all config after the `finish`. Drop-in extra config can also go in `.vim/vundle_plugins/custom/*.vim` (sourced during the install loop only).
 
+## Neovim configuration
+
+Neovim's config also lives in this repo, under `.config/nvim/`, and is symlinked to `~/.config/nvim` by `setup.sh`. It was merged in from a separate repo via `git subtree` (history preserved). Neovim does **not** read `~/.vimrc`/`~/.vim` by default — the bridge is explicit:
+
+- `.config/nvim/init.vim` is the active entry point (`$MYVIMRC`). It does `set runtimepath^=~/.vim` + `let &packpath=&runtimepath`, then `source ~/.vimrc`, so the **entire Vim config above loads under nvim too** (Vundle plugins, mappings, colorscheme). Neovim-only tweaks (clipboard, termguicolors, markdown) follow.
+- An NvChad/lazy.nvim Lua config exists under `.config/nvim/lua/` but is currently **dormant**: it bootstraps from `init.lua`, which has been renamed to `init.lua.bak`, so nvim falls through to `init.vim`. To revive NvChad, restore `init.lua` (it then takes precedence over `init.vim`). `lua/custom/` holds the personal NvChad overrides.
+
 ## Conventions
 
 - Leader and localleader are both `<Space>` (set in `mappings.vim`).
