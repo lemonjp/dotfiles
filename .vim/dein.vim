@@ -10,9 +10,6 @@ if dein#load_state('~/.cache/dein')
  call dein#add('~/.cache/dein')
  call dein#add('Shougo/deoplete.nvim')
 
- call dein#add('Shogo/neosnippet.vim')
- call dein#add('Shogo/neosnippet-snippets')
-
  if !has('nvim')
    call dein#add('roxma/nvim-yarp')
    call dein#add('roxma/vim-hug-neovim-rpc')
