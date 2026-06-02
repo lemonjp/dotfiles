@@ -13,7 +13,21 @@ map("n", "<leader>.", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<leader>m", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files (MRU)" })
 map("n", "<leader>ag", "<cmd>Telescope live_grep<CR>", { desc = "Grep (live)" })
 map("n", "<leader>as", "<cmd>Telescope grep_string<CR>", { desc = "Grep word under cursor" })
-map("n", "<C-l>", "<cmd>Telescope buffers<CR>", { desc = "List buffers" })
+-- <C-l>: open buffer list (MRU, current buffer hidden so the alternate file
+-- is the top entry). Press <C-l> again inside the list to jump straight to it
+-- -- i.e. tapping <C-l><C-l> toggles to the previously edited file, like vim.
+map("n", "<C-l>", function()
+  require("telescope.builtin").buffers({
+    sort_mru = true,
+    ignore_current_buffer = true,
+    attach_mappings = function(_, lmap)
+      local actions = require("telescope.actions")
+      lmap("i", "<C-l>", actions.select_default)
+      lmap("n", "<C-l>", actions.select_default)
+      return true
+    end,
+  })
+end, { desc = "Buffers (C-l C-l = alternate file)" })
 
 -- Git (vim-fugitive) — same shortcuts as before, modern commands
 map("n", "<leader>gc", "<cmd>Git commit -v<CR>", { desc = "Git commit" })
