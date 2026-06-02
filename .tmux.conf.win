@@ -14,8 +14,9 @@ setw -g pane-base-index 1
 set -g window-style 'bg=colour234'
 set -g window-active-style 'bg=colour232'
 # キーの割り当て変更
-## prefixキーの割り当て(Ctr+b)
-set -g prefix C-b
+## prefixキーの割り当て(Ctr+t)
+set -g prefix C-t
+bind C-t last-window
 ## prefix + -で水平分割
 bind - split-window -v
 ## prefix + |で垂直分割
