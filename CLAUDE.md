@@ -45,10 +45,12 @@ So when adding a plugin: create `.vim/vundle_plugins/<name>.vim` following this 
 
 ## Neovim configuration
 
-Neovim's config also lives in this repo, under `.config/nvim/`, and is symlinked to `~/.config/nvim` by `setup.sh`. It was merged in from a separate repo via `git subtree` (history preserved). Neovim does **not** read `~/.vimrc`/`~/.vim` by default — the bridge is explicit:
+Neovim's config lives in this repo under `.config/nvim/`, symlinked to `~/.config/nvim` by `setup.sh` (merged in from a separate repo via `git subtree`, history preserved). Neovim is **independent of `~/.vimrc`/`~/.vim`** — it has its own lean Lua config that *reproduces* the Vim look & behavior rather than sourcing it.
 
-- `.config/nvim/init.vim` is the active entry point (`$MYVIMRC`). It does `set runtimepath^=~/.vim` + `let &packpath=&runtimepath`, then `source ~/.vimrc`, so the **entire Vim config above loads under nvim too** (Vundle plugins, mappings, colorscheme). Neovim-only tweaks (clipboard, termguicolors, markdown) follow.
-- An NvChad/lazy.nvim Lua config exists under `.config/nvim/lua/` but is currently **dormant**: it bootstraps from `init.lua`, which has been renamed to `init.lua.bak`, so nvim falls through to `init.vim`. To revive NvChad, restore `init.lua` (it then takes precedence over `init.vim`). `lua/custom/` holds the personal NvChad overrides.
+- **`.config/nvim/init.lua`** is the active entry point. It sets `<Space>` leader, bootstraps **lazy.nvim**, and requires the `lua/user/` modules. Plugins are pinned in `lazy-lock.json` (tracked); run `:Lazy sync` after changing specs.
+- **`lua/user/`** = the whole config: `options.lua` (translated from the old `config.vim`), `keymaps.lua` (leader/plugin shortcuts mirroring the old Vundle keys — `<C-e>` tree, `<leader>.` files, `<leader>g*` git, …), `autocmds.lua` (trailing-whitespace trim, Java/PHP 4-space, markdown), `plugins.lua` (lazy specs).
+- **Plugin mapping from the old Vim setup**: molokai (kept) · lualine←lightline · nvim-tree←NERDTree · telescope←CtrlP/ag/bufexplorer · nvim-treesitter←the syntax plugins · nvim-autopairs←the `inoremap { }` maps · vim-surround/vim-fugitive/emmet-vim kept as-is.
+- **Fallbacks present but inactive**: `init.vim.bak` is the old Vim-bridge (sourced `~/.vimrc`); rename it back to `init.vim` *and* remove `init.lua` to restore it. The dormant NvChad tree (`lua/core`, `lua/plugins`, `lua/custom`) and `init.lua.bak` remain but are not loaded by `init.lua` (it only requires `user.*`). Note: if both `init.lua` and `init.vim` exist, nvim uses `init.lua` and warns `E5422` — keep only one named `init.*`.
 
 ## Conventions
 
