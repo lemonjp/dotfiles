@@ -20,6 +20,8 @@ map("n", "<C-l>", function()
   require("telescope.builtin").buffers({
     sort_mru = true,
     ignore_current_buffer = true,
+    initial_mode = "normal", -- start in normal mode: j/k select, i to filter
+
     attach_mappings = function(_, lmap)
       local actions = require("telescope.actions")
       lmap("i", "<C-l>", actions.select_default)
