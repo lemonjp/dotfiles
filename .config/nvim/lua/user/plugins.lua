@@ -41,7 +41,14 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
+    opts = {
+      defaults = {
+        -- Show the filename first, then the (dimmed) directory after it, so the
+        -- filename stays visible even for deeply nested paths instead of being
+        -- truncated off the right edge.
+        path_display = { "filename_first" },
+      },
+    },
   },
 
   -- Treesitter — highlighting for all languages (replaces the syntax plugins)
