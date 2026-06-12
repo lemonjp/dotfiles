@@ -49,3 +49,9 @@ map("n", "<leader>gi", ":Git ", { desc = "Git command prompt" })
 
 -- Surround custom (vim-surround): wrap inner double-quote token in #{ }
 map("n", "<leader>y#", "ysi\"#", { remap = true, desc = "Surround with #{}" })
+
+-- Sessions (persistence.nvim) — bare `nvim` auto-restores this dir's session;
+-- these are manual helpers for restoring/disabling on demand.
+map("n", "<leader>qs", function() require("persistence").load() end, { desc = "Restore session (this dir)" })
+map("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "Restore last session" })
+map("n", "<leader>qd", function() require("persistence").stop() end, { desc = "Stop saving session" })

@@ -115,4 +115,43 @@ return {
   -- Git — fugitive for the <leader>g* shortcuts, gitsigns for the gutter
   { "tpope/vim-fugitive", cmd = { "Git", "Gwrite", "Gvdiffsplit", "Gread" } },
   { "lewis6991/gitsigns.nvim", event = { "BufReadPre", "BufNewFile" }, opts = {} },
+
+  -- Sessions — remember the files/windows that were open, per directory
+  -- (like a VS Code workspace). Auto-restored on `nvim` with no file args.
+  {
+    "folke/persistence.nvim",
+    lazy = false, -- must load before VimEnter so auto-restore can fire
+    opts = {
+      -- Close the file tree before saving so it isn't restored as a broken
+      -- window; the tree re-follows the active file once restored.
+      pre_save = function()
+        pcall(vim.cmd, "NvimTreeClose")
+      end,
+    },
+    config = function(_, opts)
+      -- What a saved session captures.
+      vim.o.sessionoptions = "buffers,curdir,tabpages,winsize,winpos,localoptions"
+      require("persistence").setup(opts)
+
+      local group = vim.api.nvim_create_augroup("user_persistence", { clear = true })
+      -- Remember when nvim was fed piped stdin (e.g. `git diff | nvim -`) so we
+      -- don't clobber it with a restored session.
+      vim.api.nvim_create_autocmd("StdinReadPre", {
+        group = group,
+        callback = function()
+          vim.g.started_with_stdin = true
+        end,
+      })
+      -- Auto-restore this directory's session, but only for a bare `nvim`.
+      vim.api.nvim_create_autocmd("VimEnter", {
+        group = group,
+        nested = true,
+        callback = function()
+          if vim.fn.argc() == 0 and not vim.g.started_with_stdin then
+            require("persistence").load()
+          end
+        end,
+      })
+    end,
+  },
 }
