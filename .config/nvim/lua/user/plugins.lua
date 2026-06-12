@@ -33,6 +33,25 @@ return {
       filters = { dotfiles = false }, -- was NERDTreeShowHidden=1
       view = { width = 30 },
       renderer = { group_empty = true },
+      on_attach = function(bufnr)
+        local api = require("nvim-tree.api")
+        api.config.mappings.default_on_attach(bufnr) -- keep all default tree keys
+
+        -- <leader>ag inside the tree: live_grep scoped to the directory under
+        -- the cursor (a file node searches its parent dir). Outside the tree
+        -- <leader>ag still greps the whole project (see keymaps.lua).
+        vim.keymap.set("n", "<leader>ag", function()
+          local node = api.tree.get_node_under_cursor()
+          local path = (node and (node.absolute_path or node.link_to)) or vim.fn.getcwd()
+          if not node or node.type ~= "directory" then
+            path = vim.fn.fnamemodify(path, ":h")
+          end
+          require("telescope.builtin").live_grep({
+            search_dirs = { path },
+            prompt_title = "Grep in " .. vim.fn.fnamemodify(path, ":~:."),
+          })
+        end, { desc = "nvim-tree: live_grep under node", buffer = bufnr, silent = true, nowait = true })
+      end,
     },
   },
 
