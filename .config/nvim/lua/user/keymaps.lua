@@ -26,6 +26,11 @@ map("n", "<C-l>", function()
       local actions = require("telescope.actions")
       lmap("i", "<C-l>", actions.select_default)
       lmap("n", "<C-l>", actions.select_default)
+      -- Close the buffer under the cursor without leaving the list:
+      -- dd (vim-like) in normal mode, <C-d> in either mode.
+      lmap("n", "dd", actions.delete_buffer)
+      lmap("n", "<C-d>", actions.delete_buffer)
+      lmap("i", "<C-d>", actions.delete_buffer)
       return true
     end,
   })

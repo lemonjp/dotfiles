@@ -33,6 +33,10 @@ return {
       filters = { dotfiles = false }, -- was NERDTreeShowHidden=1
       view = { width = 30 },
       renderer = { group_empty = true },
+      -- Follow the active file: when you switch buffers (e.g. pick one from the
+      -- <C-l> list) the tree reveals & highlights it. The autocmd in
+      -- autocmds.lua then centers it in the tree window (VS Code auto-reveal).
+      update_focused_file = { enable = true, update_root = false },
       on_attach = function(bufnr)
         local api = require("nvim-tree.api")
         api.config.mappings.default_on_attach(bufnr) -- keep all default tree keys
